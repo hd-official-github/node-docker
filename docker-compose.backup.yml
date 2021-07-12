@@ -1,0 +1,14 @@
+version: "3"
+services: 
+    node-container: 
+        build: .
+        ports: 
+            - "3000:7000"
+            # - "3000:8000" //for other ports
+        volumes:
+            - ./:/app:ro
+            - /app/node_modules
+        environment:
+            - PORT=7000
+        env_file: 
+            - ./.env
