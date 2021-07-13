@@ -8,7 +8,9 @@ const redis = require('redis')
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var cors = require('cors')
-
+const date = require('date-and-time');
+const now = new Date();
+var nowtime = date.format(now, 'YYYY/MM/DD HH:mm:ss');
 let redisClient = redis.createClient({
     host: REDIS_URL,
     port: REDIS_PORT
@@ -36,11 +38,11 @@ app.use(
     })
 )
 app.get("/api/v1", (req, res) => {
-    setTimeout((() => {
-        console.log('working 123 !!!!');
-        res.send("items 123  !!!")
-    }), 2000)
+    console.log('working 123 !!!!');
+    res.send(`items 123  !!!  ew ww hello world  ${nowtime}`)
 })
+
+
 app.use(express.json());
 // localhost:3000/api/v1/posts
 app.use("/api/v1/posts", postRouter);
