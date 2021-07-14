@@ -9,8 +9,9 @@ services:
             - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     nodev2:
         build: ../server2 
+        image: himanshudocker123/server2
         environment: 
-            - PORT=4000         
+            - PORT=4000
     node-app:
         build: .
         image: himanshudocker123/node-app
