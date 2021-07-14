@@ -17,10 +17,10 @@ services:
                 NODE_ENV: production
         environment:
             - NODE_ENV=production
-            - MONGO_USER=${MONGO_USER}
-            - MONGO_PASSWORD=${MONGO_PASSWORD}
+            - MONGO_USER=root
+            - MONGO_PASSWORD=example
             - REDIS_PORT=6379
-            - SESSION_SECRET=${SESSION_SECRET}
+            - SESSION_SECRET=23rftri0f2423324f3
         command: node index.js
     nodev2:
         build:
