@@ -37,13 +37,13 @@ app.use(
         }
     })
 )
+app.use(express.json());
 app.get("/api/v1", (req, res) => {
-    console.log('working 123 !!!!');
-    res.send(`items 123  !!!  ew ww hello world  ${nowtime}`)
+    console.log('working 123 new create  called!!!!');
+    // res.send({ data: "items 123 new create " + nowtime })
+    res.send({ data: "items 123 new create " })
 })
 
-
-app.use(express.json());
 // localhost:3000/api/v1/posts
 app.use("/api/v1/posts", postRouter);
 app.use("/api/v1/users", userRouter);

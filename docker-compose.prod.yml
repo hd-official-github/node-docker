@@ -11,7 +11,6 @@ services:
         #     update_config: 
         #         parallelism: 2
         #         delay: 15s
-
         build:
             context: .
             args:
@@ -23,7 +22,14 @@ services:
             - REDIS_PORT=6379
             - SESSION_SECRET=${SESSION_SECRET}
         command: node index.js
-    
+    nodev2:
+        build:
+            context: ../server2
+            args:
+                NODE_ENV: production
+        command: node index.js
+
+        
     mongo:
         environment:
             MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}

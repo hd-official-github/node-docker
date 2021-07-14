@@ -18,3 +18,15 @@ services:
             - REDIS_PORT=6379
             - SESSION_SECRET=jhbr3j2b23ro1rf9if2rf243
         command: npm run dev
+
+    nodev2:
+        build: 
+            context: ../server2
+            args:  #args for dockerfile to npm install according to env
+                NODE_ENV: development
+        volumes: 
+            - ../server2:/server2
+            - /server2/node_modules
+        environment:
+            - NODE_ENV=development
+        command: npm run dev
